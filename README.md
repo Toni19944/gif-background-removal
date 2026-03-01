@@ -80,3 +80,14 @@ See:
 If you found this useful, feel free to tip:
 - https://ko-fi.com/tonisins
 
+## Disclaimer  
+
+I know f*ck all about programming. This app was created mostly with the help of GTP5.2(Thinking). If anyone with more knowledge gets interested in improving/cleaning the source code, feel free to do so.  
+This app works fairly well for gifs with good quality and clear edges where background and foreground are clearly distinguishable.  
+
+- Here's my original workflow before I found 'rembg' and made this app:
+  - Use the "extract frames only" setting in this app. Or write your own python/pillow script to extract the frames.
+  - Use remove.bg desktop app to remove backgrounds in bulk from those frames.  
+  - re-assemble the gif from those transparent frames either with this app or your own script.  
+ 
+  This seemed to do a lot better job faster than what I've been able to get with the models included in the app. And the higher quality models, when ran locally on a basic gamer PC, take very very long to finish. For example a benchmark run on a 60-frame 360x360 gif with bria-rmbg model without Alpha Matting took about 10-minutes on my 3070Ti. Same gif, denoised and upscaled to 1080x1080, with Alpha Matting enabled, took over a minute per frame. And I don't even know what the output would've looked like since my inpatient brain just cancelled the run and gave up.
