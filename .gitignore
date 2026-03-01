@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv*/
+venv/
+
+# Builds
+build*/
+dist/
+packaging/inno/Output/
+*.spec
+
+# Logs + outputs
+*.log
+*.work/
+rembg-work/
+
+# OS
+.DS_Store
+Thumbs.db

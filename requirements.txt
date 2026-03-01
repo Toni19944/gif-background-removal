@@ -1,0 +1,11 @@
+Pillow>=10.0.0
+rembg[cpu]
+pyinstaller
+psutil>=5.0.0
+
+# OPTIONAL GPU NOTES (install manually if you want GPU):
+# NVIDIA (CUDA):      pip install "rembg[gpu]"
+# AMD (ROCm/Linux):   pip install "rembg[rocm]"
+# Windows DirectML:   pip install onnxruntime-directml
+#
+# The app will use GPU only if an ONNX Runtime GPU provider is actually available.
