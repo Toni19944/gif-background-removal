@@ -87,7 +87,9 @@ This app works fairly well for gifs with good quality and clear edges where back
 
 - Here's my original workflow before I found 'rembg' and made this app:
   - Use the "extract frames only" setting in this app. Or write your own python/pillow script to extract the frames.
-  - Use remove.bg desktop app to remove backgrounds in bulk from those frames.  
+  - Use remove.bg desktop app to remove backgrounds in bulk from those frames.
+   > - However, you can only do this as long as you have credits. I think the free credits on remove.bg reset every month, but I honestly have no clue.  
   - re-assemble the gif from those transparent frames either with this app or your own script.  
  
   This seemed to do a lot better job faster than what I've been able to get with the models included in the app. And the higher quality models, when ran locally on a basic gamer PC, take very very long to finish. For example a benchmark run on a 60-frame 360x360 gif with bria-rmbg model without Alpha Matting took about 10-minutes on my 3070Ti. Same gif, denoised and upscaled to 1080x1080, with Alpha Matting enabled, took over a minute per frame. And I don't even know what the output would've looked like since my inpatient brain just cancelled the run and gave up.
+
