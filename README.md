@@ -3,7 +3,7 @@
 A simple desktop app that removes backgrounds from animated GIFs by:
 1) extracting frames
 2) running background removal with **rembg**
-3) assembling the GIF again (Twitch-friendly outputs included)
+3) assembling the GIF again  
 
 This project uses **rembg** for background removal:
 - rembg: https://github.com/danielgatis/rembg
@@ -15,7 +15,7 @@ Go to the **Releases** page and download one of the installers:
 - **CPU installer** (recommended): works on any Windows PC.
 - **GPU installer** (NVIDIA): faster on some setups, requires a compatible NVIDIA driver.
 
-Repo releases: https://github.com/<YOUR_GITHUB_USER>/gif-background-removal/releases
+Repo releases: https://github.com/toni19944/gif-background-removal/releases
 
 > Tip: If you’re unsure, install **CPU** first.
 
@@ -71,10 +71,22 @@ See:
 
 ## License
 
-Choose a license (MIT is common for open source). Add a `LICENSE` file to the repo.
+See:
+- `LICENSE`
 
 ## Donate
 
 If you found this useful, feel free to tip:
 - https://ko-fi.com/tonisins
 
+## Disclaimer  
+
+I know f*ck all about programming. This app was created heavily with the help of GPT5.2(Thinking). If anyone with more knowledge and interest wants to improve/clean the source code, feel free.  
+
+# My original workflow before I discovered 'rembg' and made this app:  
+- Extract frames from gif. (either with this app or your own python/pillow script).
+- Use remove.bg desktop app to remove backgrounds in bulk.
+ > - however, that app uses a log-in and a token system. So you can only do like one gif before you have to start buying tokens. Which is why I started looking for free alternatives.
+- Reassemble the gif from those transparent frames. (either with this app or your own script.)
+
+  This did a bit better quality job in background removal compared to the faster models included in this app.
