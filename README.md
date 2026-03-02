@@ -19,6 +19,11 @@ Repo releases: https://github.com/toni19944/gif-background-removal/releases
 
 > Tip: If you’re unsure, install **CPU** first.
 
+## Install from source
+
+See:
+- `docs/INSTALL_FROM_SOURCE.md`
+
 ## What’s included
 
 - Full workflow: GIF → remove bg → GIF
@@ -42,11 +47,6 @@ A common workflow:
 2) Denoise frames (ImageMagick)
 3) Upscale frames (Upscayl)
 4) Start from frames (run rembg + assemble)
-
-## Install from source
-
-See:
-- `docs/INSTALL_FROM_SOURCE.md`
 
 ## Features / Settings guide
 
@@ -79,16 +79,17 @@ See:
 If you found this useful, feel free to tip:
 - https://ko-fi.com/tonisins
 
-## Disclaimer  
+# Disclaimer  
 
 I know f*ck all about programming. This app was created heavily with the help of GPT5.2(Thinking). If anyone with more knowledge and interest wants to improve/clean the source code, feel free.  
 
-# My original workflow before I discovered 'rembg' and made this app:  
+## My original workflow before I discovered 'rembg' and made this app:  
 - Extract frames from gif. (either with this app or your own python/pillow script).
 - Use remove.bg desktop app to remove backgrounds in bulk.
  > - however, that app uses a log-in and a token system. So you can only do like one gif before you have to start buying tokens. Which is why I started looking for free alternatives.
 - Reassemble the gif from those transparent frames. (either with this app or your own script.)
 
   This did a bit better quality job in background removal compared to the faster models included in this app.
+
 
 
