@@ -208,7 +208,7 @@ def run_rembg_on_paths(
     progress: Optional[ProgressCb] = None,
 ) -> list[str]:
     """Processes each image independently with rembg."""
-	_ensure_stdio()
+    _ensure_stdio()
     transparent_out_dir.mkdir(parents=True, exist_ok=True)
 
     if (save_masks or save_previews) and masks_out_dir is None:
