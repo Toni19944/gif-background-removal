@@ -57,20 +57,27 @@ def configure_logging(log_path: Path, debug: bool) -> None:
 
     logger = logging.getLogger("gbr")
     logger.setLevel(logging.DEBUG if debug else logging.INFO)
+    logger.propagate = False  # prevent double logging
 
+    # Clear existing handlers
     for h in list(logger.handlers):
         logger.removeHandler(h)
 
-    fh = logging.FileHandler(log_path, mode="w", encoding="utf-8")
     fmt = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
+
+    # Always write to file
+    fh = logging.FileHandler(log_path, mode="w", encoding="utf-8")
     fh.setFormatter(fmt)
     fh.setLevel(logging.DEBUG if debug else logging.INFO)
     logger.addHandler(fh)
 
-    sh = logging.StreamHandler(sys.stdout)
-    sh.setFormatter(fmt)
-    sh.setLevel(logging.INFO)
-    logger.addHandler(sh)
+    # Only add console output when a real stream exists (console runs / dev)
+    stream = sys.stdout or sys.stderr
+    if stream is not None and hasattr(stream, "write"):
+        sh = logging.StreamHandler(stream)
+        sh.setFormatter(fmt)
+        sh.setLevel(logging.INFO)
+        logger.addHandler(sh)
 
     logger.info("=== GIF Background Removal Log ===")
     logger.info("Log file: %s", log_path)
