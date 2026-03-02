@@ -1,3 +1,5 @@
+### DO NOT INSTALL FROM INSTALLER RIGHT NOW. V0.1.2 GPU BUILD IS STILL BROKEN (CPU BUILD SHOULD BE FINE... I GUESS) AND I'M CURRENTLY IN THE PROCESS OF TRYING TO FIX IT. INSTALLING FROM SOURCE "SHOULD" BE FINE.
+
 # GIF Background Removal (Windows Desktop App)
 
 A simple desktop app that removes backgrounds from animated GIFs by:
@@ -90,3 +92,4 @@ I know f*ck all about programming. This app was created heavily with the help of
 - Reassemble the gif from those transparent frames. (either with this app or your own script.)
 
   This did a bit better quality job in background removal compared to the faster models included in this app.
+
