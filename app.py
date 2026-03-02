@@ -28,6 +28,7 @@ DONATE_URL = "https://ko-fi.com/tonisins"
 MODELS = [
     "bria-rmbg",
     "birefnet-general",
+    "birefnet-dis",
     "isnet-general-use",
     "isnet-anime",
     "u2net",
