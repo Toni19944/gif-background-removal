@@ -3,6 +3,8 @@ from __future__ import annotations
 import io
 import json
 import logging
+import os
+import sys
 import re
 from pathlib import Path
 from typing import Callable, List, Optional, Tuple
@@ -12,6 +14,12 @@ from rembg import new_session, remove
 
 ProgressCb = Callable[[str, int, int], None]  # (stage, current, total)
 log = logging.getLogger("gbr")
+
+def _ensure_stdio():
+    if sys.stdout is None or not hasattr(sys.stdout, "write"):
+        sys.stdout = open(os.devnull, "w")
+    if sys.stderr is None or not hasattr(sys.stderr, "write"):
+        sys.stderr = open(os.devnull, "w")
 
 # ----------------------------
 # Frame extraction (GIF -> PNG)
@@ -200,6 +208,7 @@ def run_rembg_on_paths(
     progress: Optional[ProgressCb] = None,
 ) -> list[str]:
     """Processes each image independently with rembg."""
+	_ensure_stdio()
     transparent_out_dir.mkdir(parents=True, exist_ok=True)
 
     if (save_masks or save_previews) and masks_out_dir is None:
@@ -270,6 +279,7 @@ def run_rembg_single_image(
     save_mask: bool,
     save_preview: bool,
 ) -> list[str]:
+    _ensure_stdio()
     output_png.parent.mkdir(parents=True, exist_ok=True)
 
     providers = choose_ort_providers(use_gpu)

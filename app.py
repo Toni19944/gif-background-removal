@@ -2,12 +2,18 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import sys
 import threading
 import webbrowser
 from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
+
+if sys.stdout is None or not hasattr(sys.stdout, "write"):
+    sys.stdout = open(os.devnull, "w")
+if sys.stderr is None or not hasattr(sys.stderr, "write"):
+    sys.stderr = open(os.devnull, "w")
 
 from pipeline import (
     assemble_gif_from_frames,
@@ -156,6 +162,8 @@ class App(tk.Tk):
         self.title("GIF Background Removal (rembg)")
         self.geometry("1020x700")
         self.resizable(False, False)
+
+        self.protocol("WM_DELETE_WINDOW", self.on_close)
 
         self.mode = tk.StringVar(value=WORKFLOW_MODES[0])
 
@@ -451,11 +459,28 @@ class App(tk.Tk):
     def cancel(self):
         self._cancel.set()
         self.status.set("Cancelling…")
-        # disable immediately for better UX
         try:
             self.cancel_btn.configure(state="disabled")
         except Exception:
             pass
+
+    def on_close(self):
+        # Cancel any running job
+        try:
+            self._cancel.set()
+        except Exception:
+            pass
+
+        # Close the Tk window
+        try:
+            self.quit()
+            self.destroy()
+        except Exception:
+            pass
+
+        # Ensure the process exits even if background threads are still alive
+        import os
+        os._exit(0)
 
     def progress_cb(self, stage: str, current: int, total: int):
         def _ui():
