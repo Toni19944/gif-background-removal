@@ -87,6 +87,9 @@ Different models trade speed vs quality, and behave differently depending on the
 - `u2net` / `u2netp`: very fast, good for “fast mode”, quality varies
 - `isnet-general-use`: solid general-purpose model
 - `bria-rmbg`: often high quality, heavier/slower
+- `birefnet-dis` : Worked well on the benchmark gif I used. A bit faster than bria and did better job at least on that gif. Significantly slower than u2net.
+
+  See [rembg repository](https://github.com/danielgatis/rembg?tab=readme-ov-file#available-models) for more info about the available models.
 
 If you see inconsistent edges, try switching models before changing lots of settings.
 
@@ -204,7 +207,7 @@ Useful tools:
 - Alpha matting = ON (for difficult edges)
 - Edge shrink = 1
 - Alpha threshold = 96–128
-- Model = `bria-rmbg` (quality) or `isnet-general-use` (balanced)
+- Model = `bria-rmbg`/`birefnet-dis` (quality) or `isnet-general-use` (balanced)
 
 ---
 
@@ -214,3 +217,4 @@ When opening a GitHub issue, include:
 - which workflow mode you used
 - model + settings
 - one problematic frame PNG + its mask PNG (if available)
+
