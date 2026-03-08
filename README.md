@@ -5,6 +5,8 @@ A simple desktop app that removes backgrounds from animated GIFs by:
 2) running background removal with **rembg**
 3) assembling the GIF again  
 
+NOTE: This tool/method works well for GIF's that don't have different transparency levels between different frames. So it should work well for GIF's that you'd made from a video clip for example. But yea, I tested on some pepe meme gifs which have transparency/shading/opacity changes and yea it just borks completely (which makes sense considering how the workflow works lol)
+
 This project uses **rembg** for background removal:
 - rembg: https://github.com/danielgatis/rembg
 
@@ -90,6 +92,7 @@ I know f*ck all about programming. This app was created heavily with the help of
 - Reassemble the gif from those transparent frames. (either with this app or your own script.)
 
   This did a bit better quality job in background removal compared to the faster models included in this app.
+
 
 
 
